@@ -31,18 +31,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.74</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
         </dependency>
@@ -52,6 +40,36 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>apt</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.74</version>
         </dependency>
 
         <!-- logging -->
@@ -87,7 +105,6 @@
 
         <plugins>
 
-            <!-- fat jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -151,51 +168,17 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-            <!-- generate components meta-data and validate component includes documentation etc -->
-            <plugin>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-package-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <artifactId>maven-jar-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>prepare</id>
+                        <id>default-jar</id>
                         <goals>
-                            <goal>prepare-components</goal>
+                            <goal>jar</goal>
                         </goals>
-                        <phase>generate-resources</phase>
-                    </execution>
-                    <execution>
-                        <id>validate</id>
-                        <goals>
-                            <goal>validate-components</goal>
-                        </goals>
-                        <phase>prepare-package</phase>
                     </execution>
                 </executions>
-            </plugin>
-
-            <!-- OSGi support (remove if not using OSGi) -->
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>4.2.1</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>org.dis.demo.custom-node</Bundle-SymbolicName>
-                        <Export-Service>org.apache.camel.spi.ComponentResolver;component=custom-node</Export-Service>
-                    </instructions>
-                </configuration>
             </plugin>
 
         </plugins>

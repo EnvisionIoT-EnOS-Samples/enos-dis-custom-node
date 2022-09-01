@@ -1,4 +1,4 @@
-package org.dis.demo.data;
+package org.dis.demo.process.data;
 
 import lombok.Builder;
 import lombok.Data;

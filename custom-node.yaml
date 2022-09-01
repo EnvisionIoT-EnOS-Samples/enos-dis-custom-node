@@ -1,0 +1,202 @@
+# 组件唯一标识,必填,需要和组件里的scheme一致
+id: custom-node
+version: 1.0.0
+# 组件名称,必填
+title:
+  defaultValue: custom-node
+  i18nValue:
+    en_US: custom-node
+    zh_CN: custom-node
+# 描述,选填
+description:
+  defaultValue: custom-node
+  i18nValue:
+    en_US: custom-node
+    zh_CN: custom-node
+# 组件使用格式,必填,需要和组件Endpoint class里的syntax一致
+syntax: custom-node:name
+# 标识是否支持debug,选填，如无，默认true
+supportDebug: true
+# 可输入的最大边数，选填，如无，则认为无限制
+maxEntryPoints:
+# 可输出的最大边数，选填，如无，则认为无限制
+maxExitPoints: 1
+
+# 属性列表
+properties:
+    # 属性标识符,必填,需要和组件Endpoint class里定义的参数名称一致
+  - id: pathValue
+    # 属性名称，用于前端展示，必填
+    title:
+      defaultValue: Path Value
+      i18nValue:
+        en_US: Path Value
+        zh_CN: 路径
+    # 属性值的类型,必填,'string' | 'object' | 'array' | 'number' | 'boolean'
+    type: string
+    # 属性的UI组件类型,必填,'Input' | 'Select' | 'Switch' | 'Checkbox' | 'TextArea' | 'InputNumber' | 'Password' | 'RangePicker' | 'TimePicker'
+    formElement: Input
+    # 属性UI组件的特定配置项
+    formElementConfigs:
+    # 默认值
+    # [default]
+    defaultValue: foo
+    # 是否只读,选填，默认false
+    # [readOnly]
+    readonly: false
+    # 列表项的取值
+    # [enum]
+        # 最大值
+    maxValue:
+    # 最小值
+    minValue:
+    # 最大长度
+    maxLength:
+    # 最小长度
+    minLength:
+    # 最大项数
+    maxItems:
+    # 最小项数
+    minItems:
+    # 属性标识符,必填,需要和组件Endpoint class里定义的参数名称一致
+  - id: input
+    # 属性名称，用于前端展示，必填
+    title:
+      defaultValue: Input
+      i18nValue:
+        en_US: Input
+        zh_CN: 输入
+    # 属性值的类型,必填,'string' | 'object' | 'array' | 'number' | 'boolean'
+    type: string
+    # 属性的UI组件类型,必填,'Input' | 'Select' | 'Switch' | 'Checkbox' | 'TextArea' | 'InputNumber' | 'Password' | 'RangePicker' | 'TimePicker'
+    formElement: Input
+    # 属性UI组件的特定配置项
+    formElementConfigs:
+    # 默认值
+    # [default]
+    defaultValue: 
+    # 是否只读,选填，默认false
+    # [readOnly]
+    readonly: false
+    # 列表项的取值
+    # [enum]
+        # 最大值
+    maxValue:
+    # 最小值
+    minValue:
+    # 最大长度
+    maxLength:
+    # 最小长度
+    minLength:
+    # 最大项数
+    maxItems:
+    # 最小项数
+    minItems:
+    # 属性标识符,必填,需要和组件Endpoint class里定义的参数名称一致
+  - id: select
+    # 属性名称，用于前端展示，必填
+    title:
+      defaultValue: Select
+      i18nValue:
+        en_US: Select
+        zh_CN: 选择值
+    # 属性值的类型,必填,'string' | 'object' | 'array' | 'number' | 'boolean'
+    type: number
+    # 属性的UI组件类型,必填,'Input' | 'Select' | 'Switch' | 'Checkbox' | 'TextArea' | 'InputNumber' | 'Password' | 'RangePicker' | 'TimePicker'
+    formElement: Select
+    # 属性UI组件的特定配置项
+    formElementConfigs:
+    # 默认值
+    # [default]
+    defaultValue: 1
+    # 是否只读,选填，默认false
+    # [readOnly]
+    readonly: false
+    # 列表项的取值
+    # [enum]
+    enumItems:
+      - label: value1
+        value: 1
+      - label: value2
+        value: 2
+        # 最大值
+    maxValue:
+    # 最小值
+    minValue:
+    # 最大长度
+    maxLength:
+    # 最小长度
+    minLength:
+    # 最大项数
+    maxItems:
+    # 最小项数
+    minItems:
+    # 属性标识符,必填,需要和组件Endpoint class里定义的参数名称一致
+  - id: inputNumber
+    # 属性名称，用于前端展示，必填
+    title:
+      defaultValue: InputNumber
+      i18nValue:
+        en_US: InputNumber
+        zh_CN: 数字
+    # 属性值的类型,必填,'string' | 'object' | 'array' | 'number' | 'boolean'
+    type: number
+    # 属性的UI组件类型,必填,'Input' | 'Select' | 'Switch' | 'Checkbox' | 'TextArea' | 'InputNumber' | 'Password' | 'RangePicker' | 'TimePicker'
+    formElement: InputNumber
+    # 属性UI组件的特定配置项
+    formElementConfigs:
+    # 默认值
+    # [default]
+    defaultValue: 0
+    # 是否只读,选填，默认false
+    # [readOnly]
+    readonly: false
+    # 列表项的取值
+    # [enum]
+        # 最大值
+    maxValue:
+    # 最小值
+    minValue:
+    # 最大长度
+    maxLength:
+    # 最小长度
+    minLength:
+    # 最大项数
+    maxItems:
+    # 最小项数
+    minItems:
+    # 属性标识符,必填,需要和组件Endpoint class里定义的参数名称一致
+  - id: password
+    # 属性名称，用于前端展示，必填
+    title:
+      defaultValue: Password
+      i18nValue:
+        en_US: Password
+        zh_CN: 密码
+    # 属性值的类型,必填,'string' | 'object' | 'array' | 'number' | 'boolean'
+    type: string
+    # 属性的UI组件类型,必填,'Input' | 'Select' | 'Switch' | 'Checkbox' | 'TextArea' | 'InputNumber' | 'Password' | 'RangePicker' | 'TimePicker'
+    formElement: Password
+    # 属性UI组件的特定配置项
+    formElementConfigs:
+    # 默认值
+    # [default]
+    defaultValue: 
+    # 是否只读,选填，默认false
+    # [readOnly]
+    readonly: false
+    # 列表项的取值
+    # [enum]
+        # 最大值
+    maxValue:
+    # 最小值
+    minValue:
+    # 最大长度
+    maxLength:
+    # 最小长度
+    minLength:
+    # 最大项数
+    maxItems:
+    # 最小项数
+    minItems:
+  

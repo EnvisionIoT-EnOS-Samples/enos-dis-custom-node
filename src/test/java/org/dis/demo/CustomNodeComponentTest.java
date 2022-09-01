@@ -12,12 +12,11 @@ import java.util.*;
 
 public class CustomNodeComponentTest extends CamelTestSupport {
 
-    private final EventBusHelper eventBusHelper = EventBusHelper.getInstance();
 
     @Test
     public void testCustomNode() throws Exception {
         MockEndpoint mock = getMockEndpoint("mock:result");
-        mock.expectedMinimumMessageCount(1);
+        mock.expectedMinimumMessageCount(5);
 
         // Trigger events to subscribers
         simulateEventTrigger();
@@ -29,7 +28,7 @@ public class CustomNodeComponentTest extends CamelTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("custom-node://foo")
+                from("timer://foo?repeatCount=1")
                         // 模拟前一个节点的输入
                         .process(new Processor() {
                             @Override
@@ -41,7 +40,7 @@ public class CustomNodeComponentTest extends CamelTestSupport {
                                 exchange.getIn().setHeader("meta", 3);
                             }
                         })
-                        .to("custom-node://bar?input=input&select=1&Switch=true&checkbox=true&checkbox2=true&textarea=textarea&inputNumber=1&inputNumber2=1&password=password&rangePicker=[\"2021-02-11 14:42\", \"2021-02-19 14:42\"]&timePicker=timePicker")
+                        .to("custom-node://bar?input=input&select=1&inputNumber=1&password=password")
                         .to("mock:result");
             }
         };
@@ -52,8 +51,6 @@ public class CustomNodeComponentTest extends CamelTestSupport {
             @Override
             public void run() {
                 final Date now = new Date();
-                // publish events to the event bus
-                eventBusHelper.publish(now);
             }
         };
 
